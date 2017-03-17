@@ -196,7 +196,7 @@
 			// Navbar
 
 						$(window).scroll(function(){
-		    if ($(window).scrollTop() >= 1973) {
+		    if ($(window).scrollTop() >= 960) {
 		       $('nav').addClass('fixed-header');
 		    }
 		    else {
@@ -208,7 +208,7 @@
 			window.onscroll = function() {scrollFunction()};
 
 			function scrollFunction() {
-			    if (document.body.scrollTop > 1973 || document.documentElement.scrollTop > 1973) {
+			    if (document.body.scrollTop > 960 || document.documentElement.scrollTop > 960) {
 			        document.getElementById("uptop").style.display = "block";
 			    } else {
 			        document.getElementById("uptop").style.display = "none";
