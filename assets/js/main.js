@@ -24,6 +24,8 @@
 				}, 100);
 			});
 
+
+
 		// Fix: Placeholder polyfill.
 			$('form').placeholder();
 
@@ -131,6 +133,7 @@
 					}
 				});
 
+
 		// Items.
 			$('.items')
 				.scrollex({
@@ -190,8 +193,43 @@
 					.css('overflow-x', skel.vars.mobile ? 'scroll' : 'hidden')
 					.scrollLeft(0);
 
-			// Style #1.
-				// ...
+			// Navbar
+
+						$(window).scroll(function(){
+		    if ($(window).scrollTop() >= 1973) {
+		       $('nav').addClass('fixed-header');
+		    }
+		    else {
+		       $('nav').removeClass('fixed-header');
+		    }
+		});
+
+		// When the user scrolls down 20px from the top of the document, show the button
+			window.onscroll = function() {scrollFunction()};
+
+			function scrollFunction() {
+			    if (document.body.scrollTop > 1973 || document.documentElement.scrollTop > 1973) {
+			        document.getElementById("uptop").style.display = "block";
+			    } else {
+			        document.getElementById("uptop").style.display = "none";
+			    }
+			}
+
+			// Highlight Scroll
+			$('#nav nav a').on('click', function(event) {
+			    $(this).parent().find('a').removeClass('active');
+			    $(this).addClass('active');
+			});
+
+			$(window).on('scroll', function() {
+			    $('.target').each(function() {
+			        if($(window).scrollTop() >= $(this).position().top) {
+			            var id = $(this).attr('id');
+			            $('#nav nav a').removeClass('active');
+			            $('#nav nav a[href=#'+ id +']').addClass('active');
+			        }
+			    });
+			});
 
 			// Style #2.
 				$('.gallery')
